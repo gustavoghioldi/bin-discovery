@@ -12,5 +12,7 @@ def bin_recognition(bin):
     json_query = cc.query(query).to_dict('records')
     if len(json_query) != 1:
         return Response(json.dumps({"response":"no existe referencia para {}".format(bin)}), status=404, mimetype='application/json')
-    return Response(json.dumps(json_query), status=200, mimetype='application/json')
+    return Response(json.dumps(json_query), status=200)
 
+if __name__ == '__main__':
+    app.run(host="0.0.0.0", port=8080)
